@@ -3,7 +3,8 @@ namespace Money;
 
 class Money implements Expression
 {
-    protected $amount;
+    // protected $amount;
+    public $amount;
     protected $currency;
 
     public function __construct(int $amount, string $currency)
@@ -17,9 +18,9 @@ class Money implements Expression
         return new Money($this->amount * $multiplier, $this->currency);
     }
 
-    public function plus(Money $addend): Money
+    public function plus(Money $addend): Sum
     {
-        return new Money($this->amount + $addend->amount, $this->currency);
+        return new Sum($this, $addend);
     }
 
     public function equals(Money $object): bool
@@ -28,7 +29,10 @@ class Money implements Expression
             && $this->currency == $object->currency;
     }
 
-
+    public function reduce(string $to) :Money
+    {
+        return $this;
+    }
 
     public function currency(): string
     {

@@ -4,6 +4,7 @@ require_once './vendor/autoload.php';
 
 require_once './app/expression.php';
 require_once './app/bank.php';
+require_once './app/sum.php';
 require_once './app/money.php';
 
 // autoloder設定したかったけどnamespaceでうまく動かないので保留
